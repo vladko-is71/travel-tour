@@ -1,0 +1,21 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Main page";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+    <h1>Welcome to TravelTour!</h1>
+    <p>@ViewBag.test</p>
+    <p align="center"><a href="~/Home/SignInOrRegister">Sign in or register</a></p>
+
+    @using (Html.BeginForm("ShowTour", "Home", FormMethod.Get))
+    {
+        <input type="submit" value="Hot tour to ALBANIA!" />
+    }
+</body>
+</html>
