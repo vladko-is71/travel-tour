@@ -1,0 +1,38 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Viewing options";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+    @if (ViewBag.flight == null || ViewBag.flightBack == null)
+    {
+        <h2>No flights were found!</h2>
+    }
+    else if (ViewBag.hotels.Count == 0)
+    {
+        <h2>No hotels were found!</h2>
+    }
+    else
+    {
+        <h2>Flights</h2>
+        <p>Your transfer to your destination will happen on flight @ViewBag.flight</p>
+        <p>Your transfer to your home city will happen on flight @ViewBag.flightBack</p>
+
+        <h2>All hotels that came up</h2>
+
+        foreach (var key in ViewBag.hotels.Keys)
+        {
+            <ol>
+                <li value="@key">@ViewBag.hotels[key].Item1<br>Price: @ViewBag.hotels[key].Item2<br>
+                <a href="~/Home/ShowTour?hotel=@ViewBag.hotels[key].Item1&dateFirst=@ViewBag.dateFirst&dateSecond=@ViewBag.dateSecond&price=@ViewBag.hotels[key].Item2">View</a></li>
+            </ol>
+        }
+    }
+
+</body>
+</html>

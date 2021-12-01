@@ -13,9 +13,45 @@
     <p>@ViewBag.test</p>
     <p align="center"><a href="~/Home/SignInOrRegister">Sign in or register</a></p>
 
-    @using (Html.BeginForm("ShowTour", "Home", FormMethod.Get))
+    @using (Html.BeginForm("ViewOptions", "Home", FormMethod.Get))
     {
-        <input type="submit" value="Hot tour to ALBANIA!" />
+        <p>
+            Select the best place for you:
+            <select id="place" name="place">
+                @foreach (var key in ViewBag.places.Keys)
+                {
+                    <option value="@key">@ViewBag.places[key]</option>
+                }
+            </select>
+        </p>
+
+        <p>
+            Date: from
+            <input type="date" id="start" name="start"
+                   min="@DateTime.Now.Year-@DateTime.Now.Month-@DateTime.Now.Day">
+            to
+            <input type="date" id="end" name="end"
+                   min="@DateTime.Now.Year-@DateTime.Now.Month-@DateTime.Now.Day">
+        </p>
+
+        <p>
+            Price: from
+            <input type="number" id="low" name="low"
+                   min="0" step="1">
+            to
+            <input type="number" id="high" name="high"
+                   min="0" step="1">
+        </p>
+
+        <p>
+            Sort: <select id="sorter" name="sorter">
+                <option value="def">Default</option>
+                <option value="lh">By price (from lowest to highest)</option>
+                <option value="hl">By price (from highest to lowest)</option>
+            </select>
+        </p>
+
+        <input type="submit" value="Search" />
     }
 </body>
 </html>

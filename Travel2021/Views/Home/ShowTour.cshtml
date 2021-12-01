@@ -1,11 +1,19 @@
 ﻿
 @{
-    ViewBag.Title = "ShowTour";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = ViewBag.hotel;
 }
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+    <h2>Tour to @ViewBag.hotel</h2>
+    <p>Departure: @ViewBag.dateFirst</p>
+    <p>Arrival: @ViewBag.dateSecond</p>
+    <p>Price: @ViewBag.price UAH</p>
+    <button>Book!</button>
 
-<h2>@ViewBag.markettitle in @ViewBag.hotel, @ViewBag.destination</h2>
-<p>Departure: @ViewBag.dateFirst</p>
-<p>Arrival: @ViewBag.dateSecond</p>
-<p>Price: @ViewBag.price UAH</p>
-<button>Book!</button>
-
+</body>
+</html>
