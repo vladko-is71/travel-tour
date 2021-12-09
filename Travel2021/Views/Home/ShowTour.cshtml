@@ -4,6 +4,7 @@
     ViewBag.Title = ViewBag.hotel;
 }
 <!DOCTYPE html>
+
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
@@ -13,7 +14,23 @@
     <p>Departure: @ViewBag.dateFirst</p>
     <p>Arrival: @ViewBag.dateSecond</p>
     <p>Price: @ViewBag.price UAH</p>
-    <button>Book!</button>
+
+    @using (Html.BeginForm($"Book", "Home", FormMethod.Get))
+    {
+        <input type="hidden" value="@ViewBag.hotelid" name="hotelid" />
+        <input type="hidden" value="@ViewBag.dateFirst" name="dateFirst" />
+        <input type="hidden" value="@ViewBag.dateSecond" name="dateSecond" />
+        <input type="hidden" value="@ViewBag.price" name="price" />
+        <input type="hidden" value="@ViewBag.flight1id" name="flight1id" />
+        <input type="hidden" value="@ViewBag.flight2id" name="flight2id" />
+        <p>
+            <label for="phone">Phone:</label><br>
+            <input type="text" id="phone" name="phone">
+        </p>
+        <p>
+            <input type="submit" value="Book!" />
+        </p>
+    }
 
 </body>
 </html>

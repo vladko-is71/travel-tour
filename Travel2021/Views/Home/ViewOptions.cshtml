@@ -25,11 +25,11 @@
 
         <h2>All hotels that came up</h2>
 
-        foreach (var key in ViewBag.hotels.Keys)
+        foreach (var key in ViewBag.hotelsIdInOrder)
         {
             <ol>
                 <li value="@key">@ViewBag.hotels[key].Item1<br>Price: @ViewBag.hotels[key].Item2<br>
-                <a href="~/Home/ShowTour?hotel=@ViewBag.hotels[key].Item1&dateFirst=@ViewBag.dateFirst&dateSecond=@ViewBag.dateSecond&price=@ViewBag.hotels[key].Item2">View</a></li>
+                <a href="~/Home/ShowTour?hotelid=@key&hotel=@ViewBag.hotels[key].Item1&dateFirst=@ViewBag.dateFirst&dateSecond=@ViewBag.dateSecond&price=@ViewBag.hotels[key].Item2&flight1id=@ViewBag.flightId&flight2id=@ViewBag.flightBackId">View</a></li>
             </ol>
         }
     }

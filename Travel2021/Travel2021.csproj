@@ -167,6 +167,8 @@
     <Content Include="Views\Home\ShowTour.cshtml" />
     <Content Include="Views\Home\SignInOrRegister.cshtml" />
     <Content Include="Views\Home\ViewOptions.cshtml" />
+    <Content Include="Views\Home\LogOut.cshtml" />
+    <Content Include="Views\Home\Book.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />

@@ -11,7 +11,14 @@
 <body>
     <h1>Welcome to TravelTour!</h1>
     <p>@ViewBag.test</p>
-    <p align="center"><a href="~/Home/SignInOrRegister">Sign in or register</a></p>
+    @if (!ViewBag.loggedin)
+    {
+        <p align="center"><a href="~/Home/SignInOrRegister">Sign in or register</a></p>
+    }
+    else
+    {
+        <p align="center"><a href="~/Home/LogOut">Log out</a></p>
+    }
 
     @using (Html.BeginForm("ViewOptions", "Home", FormMethod.Get))
     {
@@ -45,9 +52,9 @@
 
         <p>
             Sort: <select id="sorter" name="sorter">
-                <option value="def">Default</option>
-                <option value="lh">By price (from lowest to highest)</option>
-                <option value="hl">By price (from highest to lowest)</option>
+                <option value="0">Default</option>
+                <option value="1">By price (from lowest to highest)</option>
+                <option value="2">By price (from highest to lowest)</option>
             </select>
         </p>
 

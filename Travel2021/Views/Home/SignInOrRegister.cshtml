@@ -12,7 +12,8 @@
 
     <h2>Sign in</h2>
 
-    <form>
+    @using (Html.BeginForm("LoginSuccessful", "Home", FormMethod.Post))
+    {
         <p>
             <label for="email_signin">Email:</label><br>
             <input type="email" id="email_signin" name="email_signin">
@@ -24,7 +25,7 @@
         <p>
             <input type="submit" />
         </p>
-    </form>
+    }
 
 
     <h2>Register</h2>
